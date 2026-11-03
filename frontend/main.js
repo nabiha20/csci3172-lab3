@@ -1,4 +1,4 @@
-const RENDER_URL = 'https://bean-and-brew-api.onrender.com/';
+const RENDER_URL = 'https://bean-and-brew-api.onrender.com';
 
 
 const API_BASE = location.hostname.endsWith('.netlify.app')
