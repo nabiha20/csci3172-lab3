@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bean & Brew specialty menu, powered by an Express REST API.">
+  <meta name="theme-color" content="#2b1d16">
+  <title>Bean & Brew Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <p class="eyebrow">Halifax &middot; Est. 2026</p>
+      <h1>Bean &amp; Brew</h1>
+      <p class="lede">Our specialty menu, served fresh from a REST API.</p>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <section class="panel form-panel" aria-labelledby="form-heading">
+      <h2 id="form-heading">Add item</h2>
+      <form id="item-form" novalidate>
+        <div class="field">
+          <label for="name">Item name</label>
+          <input id="name" name="name" placeholder="e.g. Honey Lavender Latte" required maxlength="60" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category">
+            <option>Espresso</option><option>Brewed</option><option>Tea</option><option>Bakery</option>
+          </select>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="price">Price ($)</label>
+            <input id="price" name="price" type="number" step="0.01" min="0.5" max="25" required placeholder="5.25">
+          </div>
+          <div class="field">
+            <label for="caffeineMg">Caffeine (mg)</label>
+            <input id="caffeineMg" name="caffeineMg" type="number" step="1" min="0" max="500" required placeholder="120">
+          </div>
+        </div>
+        <label class="check"><input name="available" type="checkbox" checked> Available today</label>
+        <button type="submit" class="btn btn-primary">Add to menu</button>
+      </form>
+      <p id="message" class="message" role="status" aria-live="polite"></p>
+
+      <section class="inspect" aria-labelledby="inspect-heading">
+        <h3 id="inspect-heading">Inspector</h3>
+        <p class="hint">Click <strong>Inspect</strong> on any item to call <code>GET /api/items/:id</code>.</p>
+        <pre id="inspect-output" class="json" tabindex="0">{}</pre>
+      </section>
+    </section>
+
+    <section class="menu-panel" aria-labelledby="menu-heading">
+      <div class="menu-head">
+        <h2 id="menu-heading">Menu</h2>
+        <span id="menu-count" class="count">Loading&hellip;</span>
+      </div>
+      <ul id="menu-list" class="menu-list"></ul>
+    </section>
+  </main>
+
+  <footer class="wrap site-footer">
+    <p>CSCI 3172 &middot; Lab 3. .</p>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
